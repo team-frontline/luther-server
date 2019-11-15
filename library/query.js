@@ -10,6 +10,7 @@ const { FileSystemWallet, Gateway } = require('fabric-network');
 const path = require('path');
 
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
+// const ccpPath = path.resolve(__dirname, '..','..', 'first-network', 'connection-org1.json');
 console.log("ccPath is " + ccpPath); // testing
 
 async function main() {
@@ -36,7 +37,7 @@ async function main() {
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork('mychannel');
 
-        // Get the contract from the network.
+        // Get the contracttermi from the network.
         const contract = network.getContract('ctb');
 
         // Evaluate the specified transaction.
