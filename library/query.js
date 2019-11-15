@@ -10,10 +10,10 @@ const { FileSystemWallet, Gateway } = require('fabric-network');
 const path = require('path');
 
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
-console.log(__dirname); // testing
+console.log(ccpPath); // testing
 
 async function main() {
-    try {
+    try 
 
         // Create a new file system based wallet for managing identities.
         console.log("from query.js.................");
