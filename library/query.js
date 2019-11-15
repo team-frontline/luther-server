@@ -13,7 +13,7 @@ const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.
 console.log(ccpPath); // testing
 
 async function main() {
-    try 
+    try {
 
         // Create a new file system based wallet for managing identities.
         console.log("from query.js.................");
