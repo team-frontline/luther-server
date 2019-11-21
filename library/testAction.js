@@ -29,7 +29,11 @@ async function isUserExists(){
 async function gateway() {
     // Create a new gateway for connecting to our peer node.
     const gateway = new Gateway();
-    await gateway.connect(commonConnectionProfile, gatewayOptions);
+    await gateway.connect(ccpPath, gatewayOptions);
+
+    // Get the network (channel) our contract is deployed to.
+    const network = await gateway.getNetwork('mychannel');
+    console.log(network);
 }
 
 isUserExists();
