@@ -37,3 +37,4 @@ async function gateway() {
 }
 
 isUserExists();
+gateway();
