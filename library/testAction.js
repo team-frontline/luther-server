@@ -11,6 +11,9 @@ const wallet = new FileSystemWallet(walletDirectoryPath);
 console.log(`Wallet path: ${walletDirectoryPath}`);
 
 const gatewayOptions = {wallet, identity: 'user1', discovery: {enabled: true, asLocalhost: true}};
+console.log("ccPath is " + ccpPath); // testing
+
+const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
 
 async function isUserExists(){
     // Check to see if we've already enrolled the user.
