@@ -24,6 +24,7 @@ async function isUserExists(){
     } else {
         console.log(`User '${gatewayOptions.identity}': exists`)
     }
+    return userExists;
 }
 
 async function gateway() {
@@ -55,9 +56,10 @@ async function evaluateCert() {
     const result = await contract.evaluateTransaction('queryCertificate',"hdworks.org");
     console.log(result);
     console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
+    return result
 }
 
-isUserExists();
-evaluateCert();
+// isUserExists();
+// evaluateCert();
 
 
