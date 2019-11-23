@@ -16,7 +16,7 @@ const gatewayOptions = {wallet, identity: 'user1', discovery: {enabled: true, as
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
 console.log("ccPath is " + ccpPath); // testing
 
-async function isUserExists(){
+export async function isUserExists(){
     // Check to see if we've already enrolled the user.
     let userExists = await wallet.exists(gatewayOptions.identity);
     if (!userExists){
@@ -42,7 +42,7 @@ async function gateway() {
     return  contract;
 }
 
-async function evaluateCert() {
+export async function evaluateCert() {
 
     const contract = await gateway();
 
