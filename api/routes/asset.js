@@ -26,6 +26,13 @@ router.get('/is-user', async (req, res, next) => {
     });
 });
 
+router.get('/test-eval', async (req, res, next) => {
+   res.status(200).json({
+       message: 'evaluated',
+       payload:{certStatus: await testActions.evaluateCert()}
+   });
+});
+
 
 module.exports = router;
 
