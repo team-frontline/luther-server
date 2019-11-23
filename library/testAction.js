@@ -41,7 +41,9 @@ async function gateway() {
     return  contract;
 }
 
-async function evaluateCert(contract) {
+async function evaluateCert() {
+
+    const contract = await gateway();
 
     // Evaluate the specified transaction.
     // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
@@ -56,6 +58,6 @@ async function evaluateCert(contract) {
 }
 
 isUserExists();
-let contract;
-contract = gateway().then(evaluateCert(contract));
+evaluateCert();
+
 
