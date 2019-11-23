@@ -60,7 +60,7 @@ async function evaluateCert() {
     return result
 }
 
-isUserExists();
+// isUserExists();
 // evaluateCert();
 
 module.exports = {
