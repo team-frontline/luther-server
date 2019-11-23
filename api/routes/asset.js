@@ -5,13 +5,11 @@ const router = express.Router();
 // import { isUserExists, evaluateCert } from "library/testAction";
 const testActions = require("../../library/testAction");
 
-
 router.get('/', (req, res, next) => {
     res.status(200).json({
         message: 'GET requests to /api'
     });
 });
-
 
 router.post('/', (req, res, next) => {
     res.status(200).json({
@@ -27,10 +25,10 @@ router.get('/is-user', async (req, res, next) => {
 });
 
 router.get('/test-eval', async (req, res, next) => {
-   res.status(200).json({
-       message: 'evaluated',
-       payload:{certStatus: await testActions.evaluateCert()}
-   });
+    res.status(200).json({
+        message: 'evaluated',
+        payload: {certStatus: await testActions.evaluateCert()}
+    });
 });
 
 
