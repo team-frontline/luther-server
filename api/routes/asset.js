@@ -19,10 +19,10 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.get('/is-user', (req, res, next) => {
+router.get('/is-user', async (req, res, next) => {
     res.status(200).json({
         message: 'User validated',
-        payload: {user: testActions.isUserExists()}
+        payload: {user: await testActions.isUserExists()}
     });
 });
 
