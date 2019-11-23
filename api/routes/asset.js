@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
 router.get('/is-user', (req, res, next) => {
     res.status(200).json({
         message: 'User validated',
-        payload: testActions.isUserExists()
+        payload: {user: testActions.isUserExists()}
     });
 });
 
