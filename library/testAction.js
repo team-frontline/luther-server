@@ -4,11 +4,12 @@ var fs = require('fs');
 const {FileSystemWallet, Gateway} = require('fabric-network');
 const path = require('path');
 
-const walletDirectoryPath = path.join(process.cwd(), 'hfc-key-store');
+const walletPath = path.resolve(__dirname, '..', 'library', 'hfc-key-store');
+// const walletDirectoryPath = path.join(process.cwd(), 'hfc-key-store');
 
 // Obtain the smart contract with which our application wants to interact
-const wallet = new FileSystemWallet(walletDirectoryPath);
-console.log(`Wallet path: ${walletDirectoryPath}`);
+const wallet = new FileSystemWallet(walletPath);
+console.log(`Wallet path: ${walletPath}`);
 
 const gatewayOptions = {wallet, identity: 'user1', discovery: {enabled: true, asLocalhost: true}};
 
