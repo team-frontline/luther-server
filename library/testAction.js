@@ -33,7 +33,11 @@ async function gateway() {
 
     // Get the network (channel) our contract is deployed to.
     const network = await gateway.getNetwork('mychannel');
-    console.log(network);
+    // console.log(network);
+
+    // Get the contracttermi from the network.
+    const contract = network.getContract('ctb');
+    console.log(contract);
 }
 
 isUserExists();
