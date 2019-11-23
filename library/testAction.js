@@ -51,13 +51,13 @@ async function evaluateCert() {
     // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
     // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
     var certPath = "certificates/CA1/ashoka/ashoka.pem"; //proposed certificate
-    var certString = fs.readFileSync(certPath).toString();
+    //var certString = fs.readFileSync(certPath).toString();
 
     //console.log(">>>>>>>>>>drftbgvhnjmk");
     const result = await contract.evaluateTransaction('queryCertificate',"hdworks.org");
     console.log(result);
     console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
-    return result
+    return result.toString();
 }
 
 // isUserExists();
