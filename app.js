@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
-const assetRoutes = require('./api/routes/asset')
+const assetRoutes = require('./api/routes/asset');
 
 app.use('/api', assetRoutes);
 

@@ -37,7 +37,7 @@ async function gateway() {
 
     // Get the contracttermi from the network.
     const contract = network.getContract('ctb');
-    console.log(contract);
+    // console.log(contract);
     return  contract;
 }
 
