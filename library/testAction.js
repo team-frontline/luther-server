@@ -24,7 +24,7 @@ async function isUserExists(){
     } else {
         console.log(`User '${gatewayOptions.identity}': exists`)
     }
-    return userExists;
+    return userExists.toString();
 }
 
 async function gateway() {
