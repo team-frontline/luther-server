@@ -13,11 +13,10 @@ console.log(`Wallet path: ${walletPath}`);
 
 const gatewayOptions = {wallet, identity: 'user1', discovery: {enabled: true, asLocalhost: true}};
 
-
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
 console.log("ccPath is " + ccpPath); // testing
 
-async function addCertificate(certString,intermediateCertString) {
+async function addCertificate(certString, intermediateCertString) {
 
     // Create a new gateway for connecting to our peer node.
     const gateway = new Gateway();
@@ -37,7 +36,7 @@ async function addCertificate(certString,intermediateCertString) {
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
         var sigString = "";
-        await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString);
+        const result = await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString);
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
         //     console.log(buffter);
@@ -49,9 +48,10 @@ async function addCertificate(certString,intermediateCertString) {
 
         // Disconnect from the gateway.
         await gateway.disconnect();
+        return result;
 
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);
-        return {status:"Transaction Failed"}
+        return {status: "Transaction Failed"};
     }
 }

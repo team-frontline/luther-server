@@ -8,6 +8,8 @@ router.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
 // require('library/testAction');
 // import { isUserExists, evaluateCert } from "library/testAction";
 const testQuery = require("../../library/testQuery");
+const testAdd = require("../../library/testAdd");
+const testRevoke = require("../../library/testRevoke");
 
 router.get('/', (req, res, next) => {
     res.status(200).json({
@@ -57,6 +59,7 @@ router.post('/eval', async (req, res, next) => {
 });
 
 router.post('/issue',async (req, res, next) => {
+    let result  = await
     res.status(200).json({
         message: "issued",
         payload: {
