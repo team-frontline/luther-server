@@ -32,7 +32,7 @@ router.get('/test-eval', async (req, res, next) => {
 });
 
 router.post('/eval',async (req,res,next) => {
-    console.log(req);
+    console.log(req.data);
    res.status(200).json({
        message: "evaluated",
        payload:{
