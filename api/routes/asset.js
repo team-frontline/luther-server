@@ -51,7 +51,7 @@ router.post('/eval', async (req, res, next) => {
             subjectName: certStatus.subjectName,
             cert: certStatus.certString,
             validity: req.body.cert === certStatus.certString,
-            revokedStatus: certStatus.revokedStatus
+            revokeStatus: certStatus.revokeStatus
         }
     });
 });
