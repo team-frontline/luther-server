@@ -75,7 +75,7 @@ async function evaluateCert(subjectName) {
     } catch (error) {
         console.error(`Failed to evaluate transaction: ${error}`);
         // process.exit(1);
-        process.exit(-1);
+        // process.exit(-1);
         let result = {cert: "XX", revokeStatus: "notAvailable"};
         // return JSON.parse(result.toString());
 
