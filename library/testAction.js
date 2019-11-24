@@ -45,25 +45,29 @@ async function gateway() {
 
 async function evaluateCert(subjectName) {
 
-    const contract = await gateway();
-
-    // Evaluate the specified transaction.
-    // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
-    // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
-    var certPath = "certificates/CA1/ashoka/ashoka.pem"; //proposed certificate
-    //var certString = fs.readFileSync(certPath).toString();
-
-    //console.log(">>>>>>>>>>drftbgvhnjmk");
     try {
+
+        const contract = await gateway();
+
+        // Evaluate the specified transaction.
+        // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
+        // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
+        var certPath = "certificates/CA1/ashoka/ashoka.pem"; //proposed certificate
+        //var certString = fs.readFileSync(certPath).toString();
+
+        //console.log(">>>>>>>>>>drftbgvhnjmk");
+
         const result = await contract.evaluateTransaction('queryCertificate', subjectName);
+
+        console.log(result);
+        console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
+        return JSON.parse(result.toString());
     } catch (e) {
-        const result = {cert: "XXX", revokeStatus: "notAvailable"};
+        console.error(`Failed to evaluate transaction: ${error}`);
+        process.exit(1);
+        let result = {cert: "XX", revokeStatus: "notAvailable"};
         return JSON.parse(result.toString());
     }
-    //const result = await contract.evaluateTransaction('queryCertificate',subjectName);
-    console.log(result);
-    console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
-    return JSON.parse(result.toString());
 }
 
 // isUserExists();
