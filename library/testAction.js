@@ -57,7 +57,8 @@ async function evaluateCert(subjectName) {
     try {
         const result = await contract.evaluateTransaction('queryCertificate', subjectName);
     } catch (e) {
-        const result = {cert: "XXX", revokeStatus: "notAvailable"}
+        const result = {cert: "XXX", revokeStatus: "notAvailable"};
+        return JSON.parse(result.toString());
     }
     //const result = await contract.evaluateTransaction('queryCertificate',subjectName);
     console.log(result);
