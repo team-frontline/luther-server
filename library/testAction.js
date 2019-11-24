@@ -62,7 +62,7 @@ async function evaluateCert(subjectName) {
         console.log(result);
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
         return JSON.parse(result.toString());
-    } catch (e) {
+    } catch (error) {
         console.error(`Failed to evaluate transaction: ${error}`);
         process.exit(1);
         let result = {cert: "XX", revokeStatus: "notAvailable"};
