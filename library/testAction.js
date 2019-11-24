@@ -17,10 +17,10 @@ const gatewayOptions = {wallet, identity: 'user1', discovery: {enabled: true, as
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
 console.log("ccPath is " + ccpPath); // testing
 
-async function isUserExists(){
+async function isUserExists() {
     // Check to see if we've already enrolled the user.
     let userExists = await wallet.exists(gatewayOptions.identity);
-    if (!userExists){
+    if (!userExists) {
         console.log(`User '${gatewayOptions.identity}': doesn't exist`)
     } else {
         console.log(`User '${gatewayOptions.identity}': exists`)
@@ -40,7 +40,7 @@ async function gateway() {
     // Get the contracttermi from the network.
     const contract = network.getContract('ctb');
     // console.log(contract);
-    return  contract;
+    return contract;
 }
 
 async function evaluateCert(subjectName) {
@@ -54,11 +54,11 @@ async function evaluateCert(subjectName) {
     //var certString = fs.readFileSync(certPath).toString();
 
     //console.log(">>>>>>>>>>drftbgvhnjmk");
-	try {
-	const result = await contract.evaluateTransaction('queryCertificate',subjectName);
-	} catch (e){
-	const result = {cert:"XXX", revokeStatus:"notAvailable"}
-	}
+    try {
+        const result = await contract.evaluateTransaction('queryCertificate', subjectName);
+    } catch (e) {
+        const result = {cert: "XXX", revokeStatus: "notAvailable"}
+    }
     //const result = await contract.evaluateTransaction('queryCertificate',subjectName);
     console.log(result);
     console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
@@ -69,6 +69,6 @@ async function evaluateCert(subjectName) {
 // evaluateCert();
 
 module.exports = {
-  isUserExists, evaluateCert
+    isUserExists, evaluateCert
 };
 
