@@ -64,9 +64,15 @@ async function evaluateCert(subjectName) {
         return JSON.parse(result.toString());
     } catch (error) {
         console.error(`Failed to evaluate transaction: ${error}`);
-        process.exit(1);
+        // process.exit(1);
         let result = {cert: "XX", revokeStatus: "notAvailable"};
         return JSON.parse(result.toString());
+    } finally {
+
+        // Disconnect from the gateway
+        console.log('Disconnect from Fabric gateway.');
+        gateway.disconnect();
+
     }
 }
 
