@@ -60,28 +60,33 @@ router.post('/eval', async (req, res, next) => {
 
 router.post('/issue', async (req, res, next) => {
 
-    let result = await testAdd.addCertificate(req.body.cert, req.body.itermediateCert);
+    let result = await testAdd.addCertificate(req.body.cert, req.body.itermediateCert, req.body.sigString);
 
     res.status(200).json({
         message: "issued",
-        payload: {
-            subjectName: "",
-            cert: "",
-            validity: "",
-            revokeStatus: ""
-        }
+        // payload: {
+        //     subjectName: "",
+        //     cert: "",
+        //     validity: "",
+        //     revokeStatus: ""
+        // }
+        result: result
     });
 });
 
 router.post('/revoke', async (req, res, next) => {
+
+    let result = await testRevoke.revokeCertificate(req.body.cert, req.body.caCert, req.body.caSigOnCert);
+
     res.status(200).json({
         message: "revoked",
-        payload: {
-            subjectName: "",
-            cert: "",
-            validity: "",
-            revokeStatus: ""
-        }
+        // payload: {
+        //     subjectName: "",
+        //     cert: "",
+        //     validity: "",
+        //     revokeStatus: ""
+        // }
+        result: result
     });
 });
 

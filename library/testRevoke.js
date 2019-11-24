@@ -16,7 +16,7 @@ const gatewayOptions = {wallet, identity: 'user1', discovery: {enabled: true, as
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
 console.log("ccPath is " + ccpPath); // testing
 
-async function addCertificate(certString, intermediateCertString, sigString) {
+async function revokeCertificate(certString, caCertString,caSigOnCert) {
 
     // Create a new gateway for connecting to our peer node.
     const gateway = new Gateway();
@@ -35,8 +35,8 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // var certString = fs.readFileSync(certPath).toString();
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
-        // var sigString = "";
-        const result = await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString);
+        // var caSigOnCert = "";
+        const result = await contract.submitTransaction('revokeCertificate', certString, caCertString, caSigOnCert);
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
         //     console.log(buffter);
@@ -57,5 +57,5 @@ async function addCertificate(certString, intermediateCertString, sigString) {
 }
 
 module.exports = {
-    addCertificate
+    revokeCertificate
 };
