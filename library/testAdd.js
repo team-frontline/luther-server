@@ -55,3 +55,7 @@ async function addCertificate(certString, intermediateCertString) {
         return {status: "Transaction Failed"};
     }
 }
+
+module.exports = {
+    addCertificate
+};
