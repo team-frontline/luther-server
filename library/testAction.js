@@ -43,7 +43,7 @@ async function gateway() {
     return  contract;
 }
 
-async function evaluateCert() {
+async function evaluateCert(subjectName) {
 
     const contract = await gateway();
 
@@ -54,7 +54,7 @@ async function evaluateCert() {
     //var certString = fs.readFileSync(certPath).toString();
 
     //console.log(">>>>>>>>>>drftbgvhnjmk");
-    const result = await contract.evaluateTransaction('queryCertificate',"hdworks.org");
+    const result = await contract.evaluateTransaction('queryCertificate',subjectName);
     console.log(result);
     console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
     return JSON.parse(result.toString());
