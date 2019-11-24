@@ -56,6 +56,29 @@ router.post('/eval', async (req, res, next) => {
     });
 });
 
+router.post('/issue',async (req, res, next) => {
+    res.status(200).json({
+        message: "issued",
+        payload: {
+            subjectName: "",
+            cert: "",
+            validity: "",
+            revokeStatus: ""
+        }
+    });
+});
+
+router.post('/revoke',async (req, res, next) => {
+    res.status(200).json({
+        message: "revoked",
+        payload: {
+            subjectName: "",
+            cert: "",
+            validity: "",
+            revokeStatus: ""
+        }
+    });
+});
 
 module.exports = router;
 
