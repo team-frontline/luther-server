@@ -28,26 +28,36 @@ async function isUserExists() {
     return userExists.toString();
 }
 
-async function gateway() {
-    // Create a new gateway for connecting to our peer node.
-    const gateway = new Gateway();
-    await gateway.connect(ccpPath, gatewayOptions);
-
-    // Get the network (channel) our contract is deployed to.
-    const network = await gateway.getNetwork('mychannel');
-    // console.log(network);
-
-    // Get the contracttermi from the network.
-    const contract = network.getContract('ctb');
-    // console.log(contract);
-    return contract;
-}
+// async function gateway() {
+//     // Create a new gateway for connecting to our peer node.
+//     const gateway = new Gateway();
+//     await gateway.connect(ccpPath, gatewayOptions);
+//
+//     // Get the network (channel) our contract is deployed to.
+//     const network = await gateway.getNetwork('mychannel');
+//     // console.log(network);
+//
+//     // Get the contracttermi from the network.
+//     const contract = network.getContract('ctb');
+//     // console.log(contract);
+//     return contract;
+// }
 
 async function evaluateCert(subjectName) {
 
+    // Create a new gateway for connecting to our peer node.
+    const gateway = new Gateway();
+
     try {
 
-        const contract = await gateway();
+        await gateway.connect(ccpPath, gatewayOptions);
+
+        // Get the network (channel) our contract is deployed to.
+        const network = await gateway.getNetwork('mychannel');
+        // console.log(network);
+
+        // Get the contracttermi from the network.
+        const contract = network.getContract('ctb');
 
         // Evaluate the specified transaction.
         // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
@@ -68,12 +78,11 @@ async function evaluateCert(subjectName) {
         process.exit(-1);
         let result = {cert: "XX", revokeStatus: "notAvailable"};
         // return JSON.parse(result.toString());
-    } finally {
 
+    } finally {
         // Disconnect from the gateway
         console.log('Disconnect from Fabric gateway.');
         gateway.disconnect();
-
     }
 }
 
