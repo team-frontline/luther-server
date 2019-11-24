@@ -31,6 +31,19 @@ router.get('/test-eval', async (req, res, next) => {
     });
 });
 
+router.post('/eval',async (req,res,next) => {
+    console.log(req);
+   res.status(200).json({
+       message: "evaluated",
+       payload:{
+           subjectName:"",
+           cert:"",
+           validity:"",
+           revokedStatus:""
+       }
+   });
+});
+
 
 module.exports = router;
 
