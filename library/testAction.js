@@ -54,7 +54,12 @@ async function evaluateCert(subjectName) {
     //var certString = fs.readFileSync(certPath).toString();
 
     //console.log(">>>>>>>>>>drftbgvhnjmk");
-    const result = await contract.evaluateTransaction('queryCertificate',subjectName);
+	try {
+	const result = await contract.evaluateTransaction('queryCertificate',subjectName);
+	} catch (e){
+	const result = {cert:"XXX", revokeStatus:"notAvailable"}
+	}
+    //const result = await contract.evaluateTransaction('queryCertificate',subjectName);
     console.log(result);
     console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
     return JSON.parse(result.toString());
@@ -66,3 +71,4 @@ async function evaluateCert(subjectName) {
 module.exports = {
   isUserExists, evaluateCert
 };
+
