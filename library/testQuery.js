@@ -11,7 +11,7 @@ const walletPath = path.resolve(__dirname, '..', 'library', 'hfc-key-store');
 const wallet = new FileSystemWallet(walletPath);
 console.log(`Wallet path: ${walletPath}`);
 
-const gatewayOptions = {wallet, identity: 'user1', discovery: {enabled: true, asLocalhost: true}};
+const gatewayOptions = {wallet, identity: 'user2', discovery: {enabled: true, asLocalhost: true}};
 
 
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
