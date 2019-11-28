@@ -47,7 +47,7 @@ async function main() {
         var certString = fs.readFileSync(certPath).toString();
 
         //console.log(">>>>>>>>>>drftbgvhnjmk");
-        const result = await contract.evaluateTransaction('queryCertificate',"hdwoks.org");
+        const result = await contract.evaluateTransaction('queryCertificate',"du.edu.in");
         console.log(result);
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
 
