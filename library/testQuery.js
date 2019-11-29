@@ -67,7 +67,7 @@ async function evaluateCert(subjectName) {
 
         //console.log(">>>>>>>>>>drftbgvhnjmk");
 
-        const result = await contract.evaluateTransaction('queryCertificate', subjectName);
+        const result = contract.evaluateTransaction('queryCertificate', subjectName);
 
         console.log(result);
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
