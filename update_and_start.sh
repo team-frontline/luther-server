@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GIT_DIFFS=$(git status)
+export GIT_DIFFS=$(git diff)
 
 if $GIT_DIFF; then
   echo "have diffs"
