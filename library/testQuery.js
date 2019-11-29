@@ -72,9 +72,9 @@ async function evaluateCert(subjectName, cert) {
 
             let data = {result, message: e};
 
-            // console.log(`NOT FOUND\n respond: ${data.toString()}`);
+            console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
             console.log(e);
-            // return data;
+            return data;
         });
 
         let transactionResult = JSON.parse(tr.toString());
