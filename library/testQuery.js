@@ -101,19 +101,19 @@ async function evaluateCert(subjectName, cert) {
         // let result = {subjectName: "XX", revokeStatus: "notAvailable"};
         // return JSON.parse(result.toString());
 
-        // let result = {
-        //     subjectName: "<<Not Found>>",
-        //     validity: false,
-        //     revokeStatus: "<<N/A>>",
-        //     certString: "<<N/A>>",
-        // };
-        //
-        // // let data = {result, message: e};
-        // let data = {result};
-        //
-        // console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
-        // console.log(error);
-        // return data;
+        let result = {
+            subjectName: "<<Not Found>>",
+            validity: false,
+            revokeStatus: "<<N/A>>",
+            certString: "<<N/A>>",
+        };
+
+        // let data = {result, message: e};
+        let data = {result};
+
+        console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
+        console.log(error);
+        return data;
 
     }
     // finally {
