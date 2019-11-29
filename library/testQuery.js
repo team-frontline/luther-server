@@ -74,7 +74,7 @@ async function evaluateCert(subjectName, cert) {
             let data = {result};
 
             console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
-            console.log(e);
+            // console.log(e);
             return data;
         });
 
