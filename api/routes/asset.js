@@ -75,7 +75,7 @@ router.post('/issue', async (req, res, next) => {
     let result = await testAdd.addCertificate(req.body.cert, req.body.intermediateCert, req.body.sig);
 
     res.status(200).json({
-        message: "issued",
+        message: "Operation: " + result.status,
         // payload: {
         //     subjectName: "",
         //     cert: "",
