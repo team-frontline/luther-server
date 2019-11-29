@@ -40,7 +40,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         let result = {buffer: {}, err: {}};
         await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString)
             .then((buffer) => {
-                console.log("buffer: ", buffer.toString());
+                console.log("buffer: ", JSON.stringify(buffer));
                 //     result.buffer = JSON.parse(buffer.toString());
                 //     result.err = "";
                 // })
