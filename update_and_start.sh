@@ -6,5 +6,6 @@ if ! `git status | grep -q "nothing to commit"`; then
   echo have diffs
 else
   echo no diffs
+  git pull
   node server.js
 fi
