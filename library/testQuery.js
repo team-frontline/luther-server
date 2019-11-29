@@ -81,7 +81,7 @@ async function evaluateCert(subjectName, cert) {
 
         let result = {
             subjectName: transactionResult.subjectName,
-            validity: cert === transactionResult.certString,
+            validity: cert == transactionResult.certString,
             revokeStatus: transactionResult.revokeStatus,
             certString: transactionResult.certString,
         };
