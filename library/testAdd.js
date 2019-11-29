@@ -53,6 +53,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
 
 
         // Disconnect from the gateway.
+        console.log(result.toString());
         await gateway.disconnect();
         return result;
 
