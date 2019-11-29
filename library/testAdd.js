@@ -38,10 +38,10 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // var sigString = "";
         const result = await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString)
             .then((buffer) => {
-                console.log("buffer: ", buffer);
+                console.log("buffer: ", buffer.toString());
             })
             .catch((err) => {
-                console.log("error: ", err)
+                console.log("error: ", err.toString())
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
