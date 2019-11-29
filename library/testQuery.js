@@ -115,11 +115,12 @@ async function evaluateCert(subjectName, cert) {
         // console.log(error);
         // return data;
 
-    } finally {
-        // Disconnect from the gateway
-        console.log('Disconnect from Fabric gateway.');
-        gateway.disconnect();
     }
+    // finally {
+    //     // Disconnect from the gateway
+    //     console.log('Disconnect from Fabric gateway.');
+    //     gateway.disconnect();
+    // }
 }
 
 // isUserExists();
