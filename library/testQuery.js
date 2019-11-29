@@ -109,8 +109,8 @@ async function evaluateCert(subjectName, cert) {
             certString: "<<N/A>>",
         };
 
-        // let data = {result, message: e};
-        let data = {result};
+        let data = {result, message: error};
+        // let data = {result};
 
         console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
         console.log(error);
