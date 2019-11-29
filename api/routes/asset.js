@@ -49,7 +49,7 @@ router.post('/eval', async (req, res, next) => {
     res.status(200).json({
         operation: "Evaluate Certificate",
         status: "OK",
-        data: certStatus.data,
+        data: certStatus.result,
         message: certStatus.message  // message from the chaincode
     });
     // req.body.cert === certStatus.certString
