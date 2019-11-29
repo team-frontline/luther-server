@@ -36,12 +36,13 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
         // var sigString = "";
-        const result = await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString).then((buffer) => {
-            console.log("buffer: ", buffer);
-        })
-            .catch((err) => {
-                console.log("error: ", err)
-            });
+        const result = await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString);
+            // .then((buffer) => {
+            //     console.log("buffer: ", buffer);
+            // })
+            // .catch((err) => {
+            //     console.log("error: ", err)
+            // });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
         //     console.log(buffter);
