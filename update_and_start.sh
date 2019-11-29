@@ -1,9 +1,7 @@
 #!/bin/bash
 
-export GIT_DIFFS=$(git diff)
-
-if $GIT_DIFF; then
-  echo "have diffs"
+if git diff --name-only; then
+  echo have diffs
 else
-  echo "no diffs"
+  echo no diffs
 fi
