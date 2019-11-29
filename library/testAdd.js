@@ -9,12 +9,12 @@ const walletPath = path.resolve(__dirname, '..', 'library', 'hfc-key-store');
 
 // Obtain the smart contract with which our application wants to interact
 const wallet = new FileSystemWallet(walletPath);
-console.log(`Wallet path: ${walletPath}`);
+// console.log(`Wallet path: ${walletPath}`);
 
 const gatewayOptions = {wallet, identity: 'user2', discovery: {enabled: true, asLocalhost: true}};
 
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
-console.log("ccPath is " + ccpPath); // testing
+// console.log("ccPath is " + ccpPath); // testing
 
 async function addCertificate(certString, intermediateCertString, sigString) {
 
