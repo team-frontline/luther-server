@@ -15,6 +15,7 @@ const gatewayOptions = {wallet, identity: 'user2', discovery: {enabled: true, as
 
 
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
+
 // console.log("ccPath is " + ccpPath); // testing
 
 async function isUserExists() {
@@ -87,9 +88,9 @@ async function evaluateCert(subjectName, cert) {
 
         let data = {result, message: "<<N/A>>"};
 
-        console.log(`__ respond: ${result.subjectName}`);
-        // console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
-        // return data;
+        // console.log(`__ respond: ${JSON.stringify(data)}`);
+        console.log(`Transaction has been evaluated, result is: ${JSON.stringify(data)}`);
+        return data;
 
 
     } catch (error) {
