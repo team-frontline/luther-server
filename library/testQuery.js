@@ -87,7 +87,7 @@ async function evaluateCert(subjectName, cert) {
 
         let data = {result, message: "<<N/A>>"};
 
-        console.log(`__ respond: ${result.toString()}`);
+        console.log(`__ respond: ${tr.toString()}`);
         // console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
         // return data;
 
