@@ -1,4 +1,5 @@
 #!/bin/bash
+# author: Dulaj
 
 # shellcheck disable=SC2092
 # shellcheck disable=SC2006
