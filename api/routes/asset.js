@@ -47,15 +47,12 @@ router.post('/eval', async (req, res, next) => {
     let certStatus = await testQuery.evaluateCert(req.body.subjectName);
 
     res.status(200).json({
-        message: "Evaluate Operation",
-        payload: {
-            // // req: req.body,
-            // subjectName: certStatus.subjectName,
-            // cert: certStatus.certString,
-            // validity: req.body.cert === certStatus.certString,
-            // revokeStatus: certStatus.revokeStatus
-        }
+        operation: "Evaluate Certificate",
+        status: "OK",
+        data: certStatus.data,
+        message:certStatus.message  // message from the chaincode
     });
+    // req.body.cert === certStatus.certString
 });
 
 router.post('/issue', async (req, res, next) => {
@@ -75,14 +72,11 @@ router.post('/issue', async (req, res, next) => {
     let result = await testAdd.addCertificate(req.body.cert, req.body.intermediateCert, req.body.sig);
 
     res.status(200).json({
-        message: "Operation: " + result.status,
-        // payload: {
-        //     subjectName: "",
-        //     cert: "",
-        //     validity: "",
-        //     revokeStatus: ""
-        // }
-        result: result
+        operation: "",
+        status: "",
+        data: {},
+        message:{}  // message from the chaincode
+
     });
 });
 
@@ -91,14 +85,11 @@ router.post('/revoke', async (req, res, next) => {
     let result = await testRevoke.revokeCertificate(req.body.cert, req.body.caCert, req.body.caSig);
 
     res.status(200).json({
-        message: "revoked",
-        // payload: {
-        //     subjectName: "",
-        //     cert: "",
-        //     validity: "",
-        //     revokeStatus: ""
-        // }
-        result: result
+        operation: "",
+        status: "",
+        data: {},
+        message:{}  // message from the chaincode
+
     });
 });
 
