@@ -60,7 +60,7 @@ async function evaluateCert(subjectName, cert) {
         const contract = network.getContract('ctb');
 
         //get result
-        const transactionResult = await contract.evaluateTransaction('queryCertificate', subjectName).catch((e) => {
+        const tr = await contract.evaluateTransaction('queryCertificate', subjectName).catch((e) => {
             console.log('\n\n Error (starts from here))');
             let result = {
                 subjectName: "<<Not Found>>",
@@ -72,11 +72,11 @@ async function evaluateCert(subjectName, cert) {
             let data = {result, message: e};
 
             // console.log(`NOT FOUND\n respond: ${data.toString()}`);
-            console.log(e)
+            console.log(e);
             // return data;
         });
 
-        // transactionResult = JSON.parse(transactionResult);
+        let transactionResult = JSON.parse(tr.toString());
 
         let result = {
             subjectName: transactionResult.subjectName,
