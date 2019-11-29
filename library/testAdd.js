@@ -14,6 +14,7 @@ const wallet = new FileSystemWallet(walletPath);
 const gatewayOptions = {wallet, identity: 'user2', discovery: {enabled: true, asLocalhost: true}};
 
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
+
 // console.log("ccPath is " + ccpPath); // testing
 
 async function addCertificate(certString, intermediateCertString, sigString) {
@@ -36,12 +37,17 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
         // var sigString = "";
-        const result = await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString)
+        let result = {buffer: {}, err: {}};
+        await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString)
             .then((buffer) => {
                 console.log("buffer: ", buffer.toString());
+                result.buffer = JSON.parse(buffer.toString());
+                result.err = "";
             })
             .catch((err) => {
-                console.log("error: ", err.toString())
+                console.log("error: ", err.toString());
+                result.buffer = buffer;
+                result.err = JSON.parse(err.toString());
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
@@ -53,7 +59,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
 
 
         // Disconnect from the gateway.
-        console.log(result.toString());
+        // console.log(result.toString());
         await gateway.disconnect();
         return result;
 
