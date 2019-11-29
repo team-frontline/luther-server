@@ -71,8 +71,9 @@ async function evaluateCert(subjectName, cert) {
 
             let data = {result, message: e};
 
-            console.log(`NOT FOUND\n respond: ${data.toString()}`);
-            return data;
+            // console.log(`NOT FOUND\n respond: ${data.toString()}`);
+            console.log(e)
+            // return data;
         });
 
         let result = {
@@ -84,9 +85,10 @@ async function evaluateCert(subjectName, cert) {
 
         let data = {result, message: "<<N/A>>"};
 
-        console.log(`__ respond: ${data.toString()}`);
+        // console.log(`__ respond: ${data.toString()}`);
         // console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
-        return data;
+        // return data;
+
 
     } catch (error) {
         console.error(`Failed to evaluate transaction: ${error}`);
