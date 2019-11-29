@@ -73,8 +73,8 @@ router.post('/issue', async (req, res, next) => {
 
     res.status(200).json({
         operation: "",
-        status: "",
-        data: {},
+        status: "OK",
+        data: {result},
         message: {}  // message from the chaincode
 
     });
