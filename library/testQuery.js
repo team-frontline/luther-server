@@ -71,7 +71,7 @@ async function evaluateCert(subjectName, cert) {
             };
 
             // let data = {result, message: e};
-            let dat = {result};
+            let data = {result};
 
             console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
             console.log(e);
@@ -100,6 +100,20 @@ async function evaluateCert(subjectName, cert) {
         // process.exit(-1);
         // let result = {subjectName: "XX", revokeStatus: "notAvailable"};
         // return JSON.parse(result.toString());
+
+        // let result = {
+        //     subjectName: "<<Not Found>>",
+        //     validity: false,
+        //     revokeStatus: "<<N/A>>",
+        //     certString: "<<N/A>>",
+        // };
+        //
+        // // let data = {result, message: e};
+        // let data = {result};
+        //
+        // console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
+        // console.log(error);
+        // return data;
 
     } finally {
         // Disconnect from the gateway
