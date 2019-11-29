@@ -43,7 +43,7 @@ async function isUserExists() {
 //     return contract;
 // }
 
-async function evaluateCert(subjectName) {
+async function evaluateCert(subjectName, cert) {
 
     // Create a new gateway for connecting to our peer node.
     const gateway = new Gateway();
@@ -60,20 +60,40 @@ async function evaluateCert(subjectName) {
         const contract = network.getContract('ctb');
 
         //get result
-        const result = await contract.evaluateTransaction('queryCertificate', subjectName).catch((e)=>{
-            console.log('\n\n Error \n\n');
-            return "null";
+        const transactionResult = await contract.evaluateTransaction('queryCertificate', subjectName).catch((e) => {
+            console.log('\n\n Error (starts from here))');
+            let result = {
+                subjectName: "<<Not Found>>",
+                validity: false,
+                revokeStatus: "<<N/A>>",
+                certString: "<<N/A>>",
+            };
+
+            let data = {result, message: e};
+
+            console.log(`NOT FOUND\n respond: ${data.toString()}`);
+            return JSON.parse(data.toString());
         });
 
-        console.log(result);
-        console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
-        return JSON.parse(result.toString());
+        let result = {
+            subjectName: transactionResult.subjectName,
+            validity: cert === transactionResult.certString,
+            revokeStatus: transactionResult.revokeStatus,
+            certString: transactionResult.certString,
+        };
+
+        let data = {result, message: "<<N/A>>"};
+
+        console.log(`respond: ${data.toString()}`);
+        // console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
+        return JSON.parse(data.toString());
+
     } catch (error) {
         console.error(`Failed to evaluate transaction: ${error}`);
         // process.exit(1);
         // process.exit(-1);
-        let result = {subjectName: "XX", revokeStatus: "notAvailable"};
-        return JSON.parse(result.toString());
+        // let result = {subjectName: "XX", revokeStatus: "notAvailable"};
+        // return JSON.parse(result.toString());
 
     } finally {
         // Disconnect from the gateway
