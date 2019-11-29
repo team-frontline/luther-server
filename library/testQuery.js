@@ -59,14 +59,7 @@ async function evaluateCert(subjectName) {
         // Get the contracttermi from the network.
         const contract = network.getContract('ctb');
 
-        // Evaluate the specified transaction.
-        // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
-        // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
-        var certPath = "certificates/CA1/ashoka/ashoka.pem"; //proposed certificate
-        //var certString = fs.readFileSync(certPath).toString();
-
-        //console.log(">>>>>>>>>>drftbgvhnjmk");
-
+        //get result
         const result = await contract.evaluateTransaction('queryCertificate', subjectName).catch((e)=>{
             console.log('\n\n Error \n\n');
             return "null";
