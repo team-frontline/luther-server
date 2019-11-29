@@ -70,7 +70,8 @@ async function evaluateCert(subjectName, cert) {
                 certString: "<<N/A>>",
             };
 
-            let data = {result, message: e};
+            // let data = {result, message: e};
+            let dat = {result};
 
             console.log(`NOT FOUND\n respond: ${JSON.stringify(data)}`);
             console.log(e);
@@ -89,7 +90,7 @@ async function evaluateCert(subjectName, cert) {
         let data = {result, message: "<<N/A>>"};
 
         // console.log(`__ respond: ${JSON.stringify(data)}`);
-        console.log(`Transaction has been evaluated, result is: ${JSON.stringify(data)}`);
+        // console.log(`Transaction has been evaluated, result is: ${JSON.stringify(data)}`);
         return data;
 
 
