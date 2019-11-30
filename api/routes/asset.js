@@ -73,9 +73,9 @@ router.post('/issue', async (req, res, next) => {
 
     res.status(200).json({
         operation: "Adding Certificate",
-        status: "OK",
-        data: {result},
-        message: {}  // message from the chaincode
+        // status: "OK",
+        result,
+        // message: {result.err}  // message from the chaincode
 
     });
 });
@@ -85,10 +85,10 @@ router.post('/revoke', async (req, res, next) => {
     let result = await testRevoke.revokeCertificate(req.body.cert, req.body.caCert, req.body.caSig);
 
     res.status(200).json({
-        operation: "",
-        status: "",
-        data: {},
-        message: {}  // message from the chaincode
+        operation: "Revoke Certificate",
+        // status: "",
+        result,
+        // message: {result.err}  // message from the chaincode
 
     });
 });
