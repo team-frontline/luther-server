@@ -14,9 +14,10 @@ const wallet = new FileSystemWallet(walletPath);
 const gatewayOptions = {wallet, identity: 'user2', discovery: {enabled: true, asLocalhost: true}};
 
 const ccpPath = path.resolve(__dirname, '..', 'first-network', 'connection-org1.json');
+
 // console.log("ccPath is " + ccpPath); // testing
 
-async function revokeCertificate(certString, caCertString,caSigOnCert) {
+async function revokeCertificate(certString, caCertString, caSigOnCert) {
 
     // Create a new gateway for connecting to our peer node.
     const gateway = new Gateway();
@@ -36,7 +37,19 @@ async function revokeCertificate(certString, caCertString,caSigOnCert) {
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
         // var caSigOnCert = "";
-        const result = await contract.submitTransaction('revokeCertificate', certString, caCertString, caSigOnCert);
+        let result = {processStatus: "OK", buffer: {}, err: {}};
+        await contract.submitTransaction('revokeCertificate', certString, caCertString, caSigOnCert)
+            .then((buffer) => {
+                console.log("buffer: ", JSON.stringify(buffer));    //JSON.stringify(buffer)
+                //     result.buffer = JSON.parse(buffer.toString());
+                //     result.err = "";
+                // })
+            }).catch((err) => {
+                console.log("error: ", err.toString());
+                result.processStatus = "FAILED";
+                // result.buffer = buffer;
+                result.err = JSON.parse(err.toString());
+            });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
         //     console.log(buffter);
