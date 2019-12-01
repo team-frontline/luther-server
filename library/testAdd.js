@@ -47,7 +47,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
             })
             .catch((error) => {
                 console.log("error: ", error.toString());
-                throw error
+                throw error;
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
@@ -61,7 +61,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // Disconnect from the gateway.
         // console.log(result.toString());
         await gateway.disconnect();
-        // return result;
+        return {status: "OK", buffer: {}};
 
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);

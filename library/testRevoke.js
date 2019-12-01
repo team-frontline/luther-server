@@ -46,10 +46,7 @@ async function revokeCertificate(certString, caCertString, caSigOnCert) {
                 // })
             }).catch((error) => {
                 console.log("error in transaction: ", error.toString());
-                // result.processStatus = "FAILED";
-                // // result.buffer = buffer;
-                // result.err = JSON.parse(err.toString());
-                return {status: "FAILED", error}
+                throw error;
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
@@ -62,7 +59,7 @@ async function revokeCertificate(certString, caCertString, caSigOnCert) {
 
         // Disconnect from the gateway.
         await gateway.disconnect();
-        return result;
+        return {status: "OK", buffer: {}};
 
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);
