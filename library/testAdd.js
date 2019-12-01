@@ -44,11 +44,9 @@ async function addCertificate(certString, intermediateCertString, sigString) {
                 //     result.buffer = JSON.parse(buffer.toString());
                 //     result.err = "";
                 // })
-            }).catch((err) => {
-                console.log("error: ", err.toString());
-                result.status = "FAILED";
-                // result.buffer = buffer;
-                result.err = JSON.parse(err.toString());
+            }).catch((error) => {
+                console.log("error: ", error.toString());
+                return {status: "FAILED", error}
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{

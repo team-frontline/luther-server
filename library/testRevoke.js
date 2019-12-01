@@ -44,11 +44,12 @@ async function revokeCertificate(certString, caCertString, caSigOnCert) {
                 //     result.buffer = JSON.parse(buffer.toString());
                 //     result.err = "";
                 // })
-            }).catch((err) => {
-                console.log("error: ", err.toString());
-                result.processStatus = "FAILED";
-                // result.buffer = buffer;
-                result.err = JSON.parse(err.toString());
+            }).catch((error) => {
+                console.log("error: ", error.toString());
+                // result.processStatus = "FAILED";
+                // // result.buffer = buffer;
+                // result.err = JSON.parse(err.toString());
+                return {status: "FAILED", error}
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
@@ -65,7 +66,7 @@ async function revokeCertificate(certString, caCertString, caSigOnCert) {
 
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);
-        return {status: "Transaction Failed"};
+        return {status: "FAILED",error};
     }
 }
 
