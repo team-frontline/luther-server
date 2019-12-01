@@ -37,17 +37,17 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
         // var sigString = "";
-        let result = {processStatus: "OK", buffer: {}, err: {}};
+        let result = {status: "OK", buffer: {}, err: {}};
         await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString)
             .then((buffer) => {
                 console.log("buffer: ", JSON.stringify(buffer));    //JSON.stringify(buffer)
                 //     result.buffer = JSON.parse(buffer.toString());
                 //     result.err = "";
                 // })
-            }).catch((error) => {
+            })
+            .catch((error) => {
                 console.log("error: ", error.toString());
                 return {status: "FAILED", error};
-                console.log("DD");
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
@@ -61,7 +61,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // Disconnect from the gateway.
         // console.log(result.toString());
         await gateway.disconnect();
-        return result;
+        // return result;
 
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);
