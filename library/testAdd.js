@@ -46,7 +46,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
                 // })
             }).catch((error) => {
                 console.log("error: ", error.toString());
-                return {status: "FAILED", error}
+                return {status: "FAILED", error};
                 console.log("DD");
             });
 
