@@ -37,7 +37,7 @@ async function revokeCertificate(certString, caCertString, caSigOnCert) {
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
         // var caSigOnCert = "";
-        let result = {processStatus: "OK", buffer: {}, err: {}};
+        let result = {status: "OK", buffer: {}, error: {}};
         await contract.submitTransaction('revokeCertificate', certString, caCertString, caSigOnCert)
             .then((buffer) => {
                 console.log("buffer: ", JSON.stringify(buffer));    //JSON.stringify(buffer)
@@ -45,7 +45,7 @@ async function revokeCertificate(certString, caCertString, caSigOnCert) {
                 //     result.err = "";
                 // })
             }).catch((error) => {
-                console.log("error: ", error.toString());
+                console.log("error in transaction: ", error.toString());
                 // result.processStatus = "FAILED";
                 // // result.buffer = buffer;
                 // result.err = JSON.parse(err.toString());
