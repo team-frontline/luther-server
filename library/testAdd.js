@@ -37,7 +37,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
         // var intermediateCertString = fs.readFileSync(intermediateCertPath).toString();
 
         // var sigString = "";
-        let result = {status: "OK", buffer: {}, err: {}};
+        let result = {processStatus: "OK", buffer: {}, err: {}};
         await contract.submitTransaction('addCertificate', certString, intermediateCertString, sigString)
             .then((buffer) => {
                 console.log("buffer: ", JSON.stringify(buffer));    //JSON.stringify(buffer)
@@ -47,7 +47,7 @@ async function addCertificate(certString, intermediateCertString, sigString) {
             }).catch((error) => {
                 console.log("error: ", error.toString());
                 return {status: "FAILED", error}
-                console.log("DD")
+                console.log("DD");
             });
 
         // contract.submitTransaction('addCertificate',certString,intermediateCertString,sigString).then((buffter)=>{
